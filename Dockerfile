@@ -11,6 +11,12 @@ FROM mariadb:latest
 
 MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 
+# 设置目录
+RUN mkdir -p /var/log/mariadb \
+    && chown -R mysql:mysql /var/log/mariadb
+RUN mkdir -p /data/mariadb \
+    && chown -R mysql:mysql /data/mariadb
+
 # Define mountable directories.
 VOLUME ["/data/mariadb", "/var/log/mariadb"]
 
