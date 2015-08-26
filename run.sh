@@ -5,9 +5,8 @@ docker stop ibbd-$name
 docker rm ibbd-$name 
 
 docker run --name=ibbd-$name -d \
-    -p 80:80 \
-    -v /var/log/$name:/var/log/$name \
-    -v /data/$name:/data/$name \
+    -p 3306:3306 \
+    -v /data/$name:/usr/local/$name/var \
     ibbd/$name
 
 docker ps
