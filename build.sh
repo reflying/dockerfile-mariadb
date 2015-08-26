@@ -1,6 +1,6 @@
 #!/bin/bash
 
-name=mysql
+name=mariadb
 
 # 清除已有的
 docker stop ibbd-$name 

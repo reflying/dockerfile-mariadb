@@ -1,14 +1,13 @@
 #!/bin/bash
 
-name=mysql
+name=mariadb
 docker stop ibbd-$name 
 docker rm ibbd-$name 
 
 docker run --name=ibbd-$name -d \
     -p 80:80 \
-    -v /etc/nginx/sites-enabled:/etc/nginx/sites-enabled \
-    -v /var/log/nginx:/var/log/nginx \
-    -v /home/code/ibbd:/var/www \
+    -v /var/log/$name:/var/log/$name \
+    -v /data/$name:/data/$name \
     ibbd/$name
 
 docker ps

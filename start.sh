@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker start ibbd-mysql 
+docker start ibbd-mariadb 
 docker ps
 

@@ -1,9 +1,9 @@
 #
 # Mysql Dockerfile
 #
-# https://github.com/ibbd/dockerfile-mysql
+# https://github.com/ibbd/dockerfile-mariadb
 #
-# sudo docker build -t ibbd/mysql ./
+# sudo docker build -t ibbd/mariadb ./
 #
 
 # Pull base image.

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker exec -ti ibbd-mysql /bin/bash
+docker exec -ti ibbd-mariadb /bin/bash
 
