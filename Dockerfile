@@ -12,7 +12,7 @@ FROM mariadb:latest
 MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 
 # Define mountable directories.
-VOLUME ["/usr/local/mariadb/var"]
+VOLUME ["/var/lib/mysql"]
 
 # 使用自定义配置文件
 # 将默认的配置里面的目录/usr/local改成/data

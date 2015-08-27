@@ -15,7 +15,7 @@ Running mysql_install_db
 FATAL ERROR: Could not find mysqld
 ```
 
-暂时取消自定义配置
+原因：配置文件的版本和安装的版本不对应。通过 `docker exec` 进入容器，把里面的文件复制出来
 
 2. 通过exec进入容器，登陆mysql时，输入密码出现错误
 
