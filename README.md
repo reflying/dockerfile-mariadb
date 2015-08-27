@@ -23,3 +23,4 @@ FATAL ERROR: Could not find mysqld
 TERM environment variable not set.
 ```
 
+在容器里面用 `env | grep TERM` 的确是找不到对应环境变量的，暂时的解决办法是在宿主机器登陆mysql。 可以执行： `./login.sh`
