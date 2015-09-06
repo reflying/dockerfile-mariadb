@@ -11,6 +11,7 @@ docker run --name=ibbd-$name -d \
     -p 3306:3306 \
     -v /data/mysql:/var/lib/mysql \
     -v /var/log/mysql:/var/log/mysql \
+    -v /home/code/ibbd/dockerfile/mariadb/conf/my.cnf:/etc/mysql/my.cnf:ro \
     ibbd/$name
 
 docker ps
