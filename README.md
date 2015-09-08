@@ -5,6 +5,15 @@
 - 日志目录：/var/log/mysql
 - 数据目录：/var/lib/mysql
 
+## 安装
+
+- 从dockerfile安装：`sudo ./build.sh`
+- 从hub.docker.com上下载： `sudo docker pull ibbd/mariadb`
+
+## 使用 
+
+见：`./run.sh.example`
+
 ## 遇到的坑
 
 1. 使用自定义配置文件

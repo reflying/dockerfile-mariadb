@@ -28,6 +28,9 @@ VOLUME ["/var/lib/mysql"]
 # Define working directory.
 WORKDIR /etc/mysql
 
+# 解决时区问题
+env TZ "Asia/Shanghai"
+
 # Expose ports.
 EXPOSE 3306
 

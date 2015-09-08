@@ -1,4 +1,26 @@
 #!/bin/bash
+# 
+# 运行：
+# cp ./run.sh.example ./run.sh
+# sudo ./run.sh
+# 
+# 这个不好用于生产环境，因为密码是明文的
+# 
+
+#-----------------------------------
+# ----- 配置目录  BEGIN ------------
+#-----------------------------------
+
+# 数据目录
+data_path=/data/mysql
+
+# 日志目录
+logs_path=/var/log/mysql
+
+#-----------------------------------
+# ----- 配置目录  END --------------
+#-----------------------------------
+
 
 name=mariadb
 docker stop ibbd-$name 
@@ -6,12 +28,13 @@ docker rm ibbd-$name
 
 # 绑定IP时可以限制访问只允许宿主机器访问
 #-p 127.0.0.1：3306:3306 \
+current_path=$(pwd)
 docker run --name=ibbd-$name -d \
     -e MYSQL_ROOT_PASSWORD=111111 \
     -p 3306:3306 \
-    -v /data/mysql:/var/lib/mysql \
-    -v /var/log/mysql:/var/log/mysql \
-    -v /path/to/conf/my.cnf:/etc/mysql/my.cnf:ro \
+    -v $data_path:/var/lib/mysql \
+    -v $logs_path:/var/log/mysql \
+    -v $current_path/conf/my.cnf:/etc/mysql/my.cnf:ro \
     ibbd/$name
 
 docker ps
