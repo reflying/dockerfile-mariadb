@@ -5,6 +5,8 @@
 #
 # sudo docker build -t ibbd/mariadb ./
 #
+# 没安装mycli之前302M
+#
 
 # Pull base image.
 FROM mariadb:latest
@@ -19,11 +21,19 @@ VOLUME ["/var/lib/mysql"]
 # COPY conf/my.cnf     /etc/mysql/my.cnf
 
 # mycli 
-# COPY conf/mycli-gpg.key  /etc/mysql/mycli-gpg.key
-# RUN apt-key add /etc/mysql/mycli-gpg.key
-# RUN echo "deb https://packagecloud.io/amjith/mycli/ubuntu/ trusty main" | tee -a /etc/apt/sources.list
-# RUN apt-get update 
-# RUN apt-get install -y mycli 
+RUN \
+    apt-get update \
+    && apt-get install -y \
+        build-essential \
+        python-dev \
+        python-pip \
+    && pip install --upgrade pip \
+    && pip install --upgrade virtualenv \
+    && pip install mycli \
+    && git config --global push.default simple \
+    && rm -r /var/lib/apt/lists/*
+
+
 
 # Define working directory.
 WORKDIR /etc/mysql

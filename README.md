@@ -4,6 +4,8 @@
 - 文档：https://github.com/docker-library/docs/blob/master/mariadb/README.md 
 - 日志目录：/var/log/mysql
 - 数据目录：/var/lib/mysql
+- 安装mycli工具
+- 不建议使用在生产环境上
 
 ## 安装
 
