@@ -24,12 +24,13 @@ VOLUME ["/var/lib/mysql"]
 #RUN curl -s https://packagecloud.io/install/repositories/amjith/mycli/script.deb.sh | bash
 RUN \
     buildDeps='apt-transport-https build-essential git curl' \
-    && echo "deb https://packagecloud.io/amjith/mycli/ubuntu/ trusty main" | tee -a /etc/apt/sources.list \
+    && set -x \
     && apt-get update \
     && apt-get install -y $buildDeps \
-    && set -x \
+    && echo "deb https://packagecloud.io/amjith/mycli/ubuntu/ trusty main" | tee -a /etc/apt/sources.list \
     && curl https://packagecloud.io/gpg.key | apt-key add - \
-    && apt-get install mycli \
+    && apt-get update \
+    && apt-get install -y mycli \
     && rm -r /var/lib/apt/lists/* \
     && apt-get purge -y --auto-remove $buildDeps 
 
