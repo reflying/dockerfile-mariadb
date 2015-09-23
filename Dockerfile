@@ -22,18 +22,14 @@ VOLUME ["/var/lib/mysql"]
 
 # mycli 
 RUN \
-    apt-get update \
-    && apt-get install -y \
-        build-essential \
-        python-dev \
-        python-pip \
-    && pip install --upgrade pip \
-    && pip install --upgrade virtualenv \
-    && pip install mycli \
-    && git config --global push.default simple \
-    && rm -r /var/lib/apt/lists/*
-
-
+    buildDeps='apt-transport-https' \
+    && set -x \
+    && curl https://packagecloud.io/gpg.key | apt-key add - \
+    && apt-get update \
+    && apt-get install -y $buildDeps \
+        mycli \
+    && rm -r /var/lib/apt/lists/* \
+    && apt-get purge -y --auto-remove $buildDeps 
 
 # Define working directory.
 WORKDIR /etc/mysql
