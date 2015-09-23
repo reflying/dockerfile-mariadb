@@ -28,7 +28,7 @@ RUN \
     && apt-get install -y $buildDeps \
     && set -x \
     && curl https://packagecloud.io/gpg.key | apt-key add - \
-    && echo "deb https://packagecloud.io/amjith/mycli/ubuntu/ trusty main" | sudo tee -a /etc/apt/sources.list \
+    && echo "deb https://packagecloud.io/amjith/mycli/ubuntu/ trusty main" | tee -a /etc/apt/sources.list \
     && apt-get install mycli \
     && rm -r /var/lib/apt/lists/* \
     && apt-get purge -y --auto-remove $buildDeps 
