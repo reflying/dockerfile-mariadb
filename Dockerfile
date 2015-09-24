@@ -5,7 +5,7 @@
 #
 # sudo docker build -t ibbd/mariadb ./
 #
-# 没安装mycli之前302M
+# 没安装mycli之前302M, 安装完之后是351.6M
 #
 
 # Pull base image.
@@ -16,12 +16,7 @@ MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 # Define mountable directories.
 VOLUME ["/var/lib/mysql"]
 
-# 使用自定义配置文件
-# 将默认的配置里面的目录/usr/local改成/data
-# COPY conf/my.cnf     /etc/mysql/my.cnf
-
 # mycli 
-#RUN curl -s https://packagecloud.io/install/repositories/amjith/mycli/script.deb.sh | bash
 RUN \
     buildDeps='apt-transport-https build-essential git curl' \
     && set -x \
