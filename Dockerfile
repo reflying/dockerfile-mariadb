@@ -26,6 +26,7 @@ RUN \
     && curl https://packagecloud.io/gpg.key | apt-key add - \
     && apt-get update \
     && apt-get install -y mycli \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && rm -r /var/lib/apt/lists/* \
     && apt-get purge -y --auto-remove $buildDeps 
 
@@ -33,7 +34,10 @@ RUN \
 WORKDIR /etc/mysql
 
 # 解决时区问题
-env TZ "Asia/Shanghai"
+ENV TZ "Asia/Shanghai"
+
+# 终端设置
+ENV TERM xterm
 
 # Expose ports.
 EXPOSE 3306
