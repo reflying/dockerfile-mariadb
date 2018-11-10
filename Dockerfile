@@ -17,6 +17,8 @@ MAINTAINER Alex Cai "cyy0523xc@gmail.com"
 VOLUME ["/var/lib/mysql"]
 
 # Define working directory.
+# 默认编码修改为utf8
+COPY ./conf/mariadb.cnf /etc/mysql/mariadb.cnf
 WORKDIR /etc/mysql
 
 # 解决时区问题
