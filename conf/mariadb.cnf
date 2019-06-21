@@ -1,3 +1,4 @@
+
 # MariaDB-specific config file.
 # Read by /etc/mysql/my.cnf
 
@@ -18,6 +19,9 @@ collation_server       = utf8_general_ci
 max_connections		= 300
 innodb_buffer_pool_size	= 1024M
 lower_case_table_names=1
+log-bin = /var/lib/mysql/logs/mysql-bin.log
+expire-logs-days = 14
+max-binlog-size = 500M
 
 # Import all .cnf files from configuration directory
 !includedir /etc/mysql/mariadb.conf.d/
