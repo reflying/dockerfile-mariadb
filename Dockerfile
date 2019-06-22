@@ -8,7 +8,7 @@ VOLUME ["/var/lib/mysql"]
 
 # Define working directory.
 # 默认编码修改为utf8
-COPY ./conf/mariadb.cnf /etc/mysql/mariadb.cnf
+COPY ./conf/mariadb.cnf /etc/mysql/mariadb.conf.d/mariadb.cnf
 WORKDIR /etc/mysql
 
 # 解决时区问题
