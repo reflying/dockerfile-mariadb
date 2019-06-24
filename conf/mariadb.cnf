@@ -22,6 +22,7 @@ lower_case_table_names=1
 log-bin = /var/lib/mysql/logs/mysql-bin.log
 expire-logs-days = 14
 max-binlog-size = 500M
+log_bin_trust_function_creators = 1
 
 # Import all .cnf files from configuration directory
 !includedir /etc/mysql/mariadb.conf.d/
