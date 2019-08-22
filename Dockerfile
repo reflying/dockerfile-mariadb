@@ -11,7 +11,7 @@ VOLUME ["/var/lib/mysql"]
 COPY ./conf/mariadb.cnf /etc/mysql/mariadb.conf.d/mariadb.cnf
 WORKDIR /etc/mysql
 
-# 解决时区问题
+# 解决时区问题#
 ENV TZ "Asia/Shanghai"
 
 # 终端设置
